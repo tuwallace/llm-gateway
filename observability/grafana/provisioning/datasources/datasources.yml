@@ -1,0 +1,23 @@
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    uid: prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+  # Read-only role (observability/init_grafana_db_role.sh): four team columns only.
+  # Quota panels read the enforced spend here because LiteLLM's remaining-budget
+  # gauge goes stale (it is computed from a cached team record).
+  - name: Postgres (quotas)
+    uid: postgres
+    type: grafana-postgresql-datasource
+    access: proxy
+    url: postgres:5432
+    user: grafana_ro
+    jsonData:
+      database: litellm
+      sslmode: disable
+      postgresVersion: 1600
+    secureJsonData:
+      password: $GRAFANA_DB_PASSWORD

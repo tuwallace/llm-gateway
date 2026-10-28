@@ -1,0 +1,10 @@
+gateway-env/
+sim_results/
+vault/
+graphify-out/
+.env
+teams_keys.json
+observability/scraper.key
+*.log
+cluster/logs/
+.pytest_cache/

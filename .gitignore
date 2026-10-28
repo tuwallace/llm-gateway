@@ -1,0 +1,18 @@
+# secrets
+.env
+teams_keys.json
+observability/scraper.key
+*.key
+# environments and runtime state
+gateway-env/
+__pycache__/
+.pytest_cache/
+*.log
+cluster/logs/
+cluster/data/
+.pids/
+# generated
+sim_results/
+graphify-out/cache/
+vault/
+.claude/settings.local.json

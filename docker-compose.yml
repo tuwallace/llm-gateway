@@ -1,0 +1,76 @@
+name: llmgw
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: llmgw-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: llmgw
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: litellm
+    ports:
+      # 5432 is taken by another project's container on this machine
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U llmgw -d litellm"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    # redis-stack-server bundles RediSearch, needed for vector similarity.
+    image: redis/redis-stack-server:latest
+    container_name: llmgw-redis
+    restart: unless-stopped
+    environment:
+      REDIS_ARGS: "--requirepass ${REDIS_PASSWORD:?set REDIS_PASSWORD in .env}"
+    ports:
+      - "127.0.0.1:6380:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --no-auth-warning -a \"${REDIS_PASSWORD}\" ping | grep -q PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    container_name: llmgw-prometheus
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9090:9090"
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # reach the gateway running on the host
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./observability/scraper.key:/etc/prometheus/scraper.key:ro
+      - promdata:/prometheus
+
+  grafana:
+    image: grafana/grafana:11.3.1
+    container_name: llmgw-grafana
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?set GRAFANA_PASSWORD in .env}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GRAFANA_DB_PASSWORD: ${GRAFANA_DB_PASSWORD:?set GRAFANA_DB_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafanadata:/var/lib/grafana
+
+volumes:
+  pgdata:
+  redisdata:
+  promdata:
+  grafanadata:

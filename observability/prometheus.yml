@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: litellm
+    scrape_interval: 5s
+    metrics_path: /metrics/ # trailing slash: /metrics answers with a redirect
+    authorization:
+      credentials_file: /etc/prometheus/scraper.key # read-only key, metrics routes only
+    static_configs:
+      - targets: ["host.docker.internal:4000"] # gateway runs on the host

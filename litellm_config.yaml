@@ -1,0 +1,83 @@
+# Three Ollama nodes (see cluster/start_nodes.sh) behind one model name.
+# Local models are free, so tokens are priced artificially ($10 per 1M) to make
+# budgets act as token quotas.
+x-ollama-params: &ollama_params
+  model: ollama/phi3
+  input_cost_per_token: 0.00001
+  output_cost_per_token: 0.00001
+
+model_list:
+  - model_name: my-educational-model
+    litellm_params:
+      <<: *ollama_params
+      api_base: "http://localhost:11435"
+    model_info:
+      id: node-1
+  - model_name: my-educational-model
+    litellm_params:
+      <<: *ollama_params
+      api_base: "http://localhost:11436"
+    model_info:
+      id: node-2
+  - model_name: my-educational-model
+    litellm_params:
+      <<: *ollama_params
+      api_base: "http://localhost:11437"
+    model_info:
+      id: node-3
+
+  # Fallback model on its own node: used only when every phi3 node has failed.
+  - model_name: my-fallback-model
+    litellm_params:
+      model: ollama/llama3
+      input_cost_per_token: 0.00001
+      output_cost_per_token: 0.00001
+      api_base: "http://localhost:11438"
+    model_info:
+      id: fallback-node
+
+  # Embeddings for the semantic cache, on the fallback node (not in the phi3 group).
+  - model_name: ollama-embed
+    litellm_params:
+      model: ollama/nomic-embed-text
+      api_base: "http://localhost:11438"
+    model_info:
+      id: embed-node
+
+router_settings:
+  routing_strategy: simple-shuffle # even random spread; try least-busy under load
+  num_retries: 3 # retries re-pick a deployment, so a dead node is usually skipped
+  allowed_fails: 1 # failures per minute before a node is cooled down
+  cooldown_time: 30 # seconds a failing node is skipped
+  # LiteLLM never cools down a node on connection errors (a dead node keeps
+  # receiving traffic and costs a retry each time), so probe nodes actively
+  # and route around the ones that fail.
+  enable_health_check_routing: true
+  fallbacks:
+    - my-educational-model: ["my-fallback-model"]
+
+general_settings:
+  database_url: os.environ/DATABASE_URL # Postgres from docker-compose.yml
+  background_health_checks: true
+  health_check_interval: 10 # seconds between probes
+  # Probe only the primary group; probing the fallback would load llama3 into RAM.
+  background_health_check_model_groups: ["my-educational-model"]
+
+litellm_settings:
+  set_verbose: True # Useful for educational debugging
+  callbacks: ["prometheus"] # exposes /metrics for Prometheus (docker-compose.yml)
+  cache: true
+  cache_params:
+    type: redis-semantic # Redis Stack container from docker-compose.yml
+    host: localhost
+    port: 6380
+    password: os.environ/REDIS_PASSWORD
+    # Cosine similarity needed for a hit. Measured with nomic-embed-text against
+    # "What is the capital of France?": paraphrases 0.94-0.98, "...of Germany?" 0.77,
+    # unrelated 0.34. At 0.8 the Germany prompt was only 0.03 from returning
+    # France's answer, so 0.9 keeps a margin on both sides.
+    similarity_threshold: 0.9
+    redis_semantic_cache_embedding_model: ollama-embed
+    ttl: 600 # seconds
+    # Entries are bucketed per key/team/org (semantic_cache_scope defaults to "key"),
+    # so one team never receives another team's cached answer.

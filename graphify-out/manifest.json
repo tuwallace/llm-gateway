@@ -1,0 +1,272 @@
+{
+  ".claude/settings.local.json": {
+    "mtime": 1793029308.6503913,
+    "seen": 1793201057.8758469,
+    "ast_hash": "36f0502aa1b0b5f5e3f14b6f36af7955",
+    "semantic_hash": ""
+  },
+  "cluster/start_nodes.sh": {
+    "mtime": 1793109903.709638,
+    "seen": 1793201057.875854,
+    "ast_hash": "512b7a7ebe3c00cf6a45766c4f21b117",
+    "semantic_hash": ""
+  },
+  "cluster/stop_nodes.sh": {
+    "mtime": 1793109903.709808,
+    "seen": 1793201057.8758569,
+    "ast_hash": "1e749d481700a276585ae3b899f9eddc",
+    "semantic_hash": ""
+  },
+  "compare_runs.py": {
+    "mtime": 1793107755.8485646,
+    "seen": 1793201057.875859,
+    "ast_hash": "c75587a5544363e16a838667a44a657d",
+    "semantic_hash": ""
+  },
+  "concurrency_profile.py": {
+    "mtime": 1793052152.534231,
+    "seen": 1793201057.875861,
+    "ast_hash": "5e120020ec9849fbcb760619e236e8bc",
+    "semantic_hash": ""
+  },
+  "experiments/concurrency_probes.py": {
+    "mtime": 1793053580.7467444,
+    "seen": 1793201057.875863,
+    "ast_hash": "3c8a195cd34179b2d03320c64b8440e9",
+    "semantic_hash": ""
+  },
+  "experiments/make_fallback_config.py": {
+    "mtime": 1793109903.7100768,
+    "seen": 1793201057.875865,
+    "ast_hash": "f4f10b4d7098c88dd3cec7da6b38aa9a",
+    "semantic_hash": ""
+  },
+  "experiments/make_pool_config.py": {
+    "mtime": 1793054367.688911,
+    "seen": 1793201057.8758662,
+    "ast_hash": "11f0330e9f73a4ec83ca140a610b0a03",
+    "semantic_hash": ""
+  },
+  "experiments/pool_probes.py": {
+    "mtime": 1793054417.3237066,
+    "seen": 1793201057.8758678,
+    "ast_hash": "e48919cf2b063ddf04c842ddaeaddc5c",
+    "semantic_hash": ""
+  },
+  "observability/build_dashboard.py": {
+    "mtime": 1793106729.5009573,
+    "seen": 1793201057.875869,
+    "ast_hash": "e1df08e3fddf5848ccaca33831d818b4",
+    "semantic_hash": ""
+  },
+  "observability/grafana/dashboards/llm-gateway.json": {
+    "mtime": 1793106729.6576664,
+    "seen": 1793201057.875871,
+    "ast_hash": "3f93a44284487c85fc135eb2932147b6",
+    "semantic_hash": ""
+  },
+  "observability/init_grafana_db_role.sh": {
+    "mtime": 1793047231.2106776,
+    "seen": 1793201057.875873,
+    "ast_hash": "fe0bf29c441eaa921fba074ce272c111",
+    "semantic_hash": ""
+  },
+  "pool_profile.py": {
+    "mtime": 1793054376.020508,
+    "seen": 1793201057.875875,
+    "ast_hash": "33d22d25aaa80c6d43522d4f43823c29",
+    "semantic_hash": ""
+  },
+  "reset_team_spend.py": {
+    "mtime": 1793046925.9933426,
+    "seen": 1793201057.8758762,
+    "ast_hash": "5c3b47cb105f26057a51c36d9b6d54f4",
+    "semantic_hash": ""
+  },
+  "restart_gateway.sh": {
+    "mtime": 1793054367.7137656,
+    "seen": 1793201057.8758779,
+    "ast_hash": "fe7eea1fb3b75547783ef0e3aee867eb",
+    "semantic_hash": ""
+  },
+  "seed_teams.py": {
+    "mtime": 1793045612.6794565,
+    "seen": 1793201057.87588,
+    "ast_hash": "59789572c55230ee0964fede0faebd5f",
+    "semantic_hash": ""
+  },
+  "simulate.py": {
+    "mtime": 1793198475.429003,
+    "seen": 1793201057.875882,
+    "ast_hash": "847053bfb62a40996febc1c915e5ffd9",
+    "semantic_hash": ""
+  },
+  "test_cache.py": {
+    "mtime": 1793044568.0627294,
+    "seen": 1793201057.875883,
+    "ast_hash": "c0df5164004cea5b435c42c882d86b04",
+    "semantic_hash": ""
+  },
+  "test_cluster.py": {
+    "mtime": 1793044666.2014694,
+    "seen": 1793201057.875885,
+    "ast_hash": "468b163490c5cdde641aece3a97b0dd4",
+    "semantic_hash": ""
+  },
+  "test_experiment_configs.py": {
+    "mtime": 1793111459.2152603,
+    "seen": 1793201057.8758872,
+    "ast_hash": "ca751819af4e11b7a1e9169913ab977b",
+    "semantic_hash": ""
+  },
+  "test_failover.py": {
+    "mtime": 1793044666.2119238,
+    "seen": 1793201057.875888,
+    "ast_hash": "9cf7b5ce18f8417b2de4861d29abcc72",
+    "semantic_hash": ""
+  },
+  "test_gateway.py": {
+    "mtime": 1793039952.3327062,
+    "seen": 1793201057.87589,
+    "ast_hash": "e04636d14a4c601a181cdf1d707724bc",
+    "semantic_hash": ""
+  },
+  "test_observability.py": {
+    "mtime": 1793054402.7630348,
+    "seen": 1793201057.875892,
+    "ast_hash": "e8eafc412d6d2b0e117c79bc1dd04da7",
+    "semantic_hash": ""
+  },
+  "test_teams.py": {
+    "mtime": 1793044666.185589,
+    "seen": 1793201057.875894,
+    "ast_hash": "077baccd5c359d3661cffee5661e65fc",
+    "semantic_hash": ""
+  },
+  "test_tokens.py": {
+    "mtime": 1793045881.1389074,
+    "seen": 1793201057.875895,
+    "ast_hash": "38dac8c96edc8f9b7dd3c743aa2393bc",
+    "semantic_hash": ""
+  },
+  "usage_report.py": {
+    "mtime": 1793045716.7991536,
+    "seen": 1793201057.875896,
+    "ast_hash": "915940a78a3af727b3f3c78eab8ff3e5",
+    "semantic_hash": ""
+  },
+  "ROADMAP.md": {
+    "mtime": 1793198737.4978845,
+    "seen": 1793201057.8758981,
+    "ast_hash": "16c1894b20b0c67a52a79b0056809e04",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1793047251.1955948,
+    "seen": 1793201057.8758998,
+    "ast_hash": "c5d3bd58a3e1cdddd696bab762053a32",
+    "semantic_hash": ""
+  },
+  "docs/commands.md": {
+    "mtime": 1793198737.5017116,
+    "seen": 1793201057.875902,
+    "ast_hash": "751687e24abeffd7c49cffc88239197c",
+    "semantic_hash": ""
+  },
+  "docs/concurrency-experiment.md": {
+    "mtime": 1793109148.587062,
+    "seen": 1793201057.875903,
+    "ast_hash": "b9fde76502f32afe26bcb5a1aa88379b",
+    "semantic_hash": ""
+  },
+  "docs/dedicated-pool-experiment.md": {
+    "mtime": 1793109148.58744,
+    "seen": 1793201057.875905,
+    "ast_hash": "f41efcd4b87fcc8d5fab5c0b9c74ad7a",
+    "semantic_hash": ""
+  },
+  "docs/fallback-experiment.md": {
+    "mtime": 1793197535.5686402,
+    "seen": 1793201057.8759072,
+    "ast_hash": "f1bec0bdee4b570fec3ffaf4f6cc1193",
+    "semantic_hash": ""
+  },
+  "docs/simulation-report.md": {
+    "mtime": 1793109148.5880184,
+    "seen": 1793201057.8759081,
+    "ast_hash": "794f6b48384d994213ccdb124a33fadd",
+    "semantic_hash": ""
+  },
+  "docs/variance-experiment.md": {
+    "mtime": 1793198737.4982908,
+    "seen": 1793201057.8759098,
+    "ast_hash": "5c2f85aca870ded59049c813f32b9f6e",
+    "semantic_hash": ""
+  },
+  "experiments/litellm_config.fb-big-limit-cd5.yaml": {
+    "mtime": 1793109907.9252813,
+    "seen": 1793201057.875911,
+    "ast_hash": "4799f079b06ef93e7b3ec782e58f9151",
+    "semantic_hash": ""
+  },
+  "experiments/litellm_config.fb-big.yaml": {
+    "mtime": 1793109907.883879,
+    "seen": 1793201057.875913,
+    "ast_hash": "666257902a3f9a426e612352a49eb9eb",
+    "semantic_hash": ""
+  },
+  "experiments/litellm_config.fb-both.yaml": {
+    "mtime": 1793106742.885837,
+    "seen": 1793201057.875915,
+    "ast_hash": "5d761b77f2e70bc7cae766e9ec389858",
+    "semantic_hash": ""
+  },
+  "experiments/litellm_config.fb-limit-cd5.yaml": {
+    "mtime": 1793109907.9621394,
+    "seen": 1793201057.875916,
+    "ast_hash": "f29c9a33d4c76ea3846f7bc8ada6688b",
+    "semantic_hash": ""
+  },
+  "experiments/litellm_config.fb-limit.yaml": {
+    "mtime": 1793106561.4148474,
+    "seen": 1793201057.875922,
+    "ast_hash": "4b65d0432d7f96eed544a4befa40d87d",
+    "semantic_hash": ""
+  },
+  "experiments/litellm_config.fb-node2.yaml": {
+    "mtime": 1793106742.8393664,
+    "seen": 1793201057.875923,
+    "ast_hash": "9d1cd97855bfdf228cd14d085948ad84",
+    "semantic_hash": ""
+  },
+  "experiments/litellm_config.pool.yaml": {
+    "mtime": 1793054367.7614274,
+    "seen": 1793201057.875925,
+    "ast_hash": "d73049833628436d622da3d0d27abeff",
+    "semantic_hash": ""
+  },
+  "litellm_config.yaml": {
+    "mtime": 1793046481.9671953,
+    "seen": 1793201057.875926,
+    "ast_hash": "7e6ad2d066f94975f39a53ecc303275d",
+    "semantic_hash": ""
+  },
+  "observability/grafana/provisioning/dashboards/dashboards.yml": {
+    "mtime": 1793046589.623867,
+    "seen": 1793201057.8759282,
+    "ast_hash": "c86529605b2a7b17e66ab05da698c773",
+    "semantic_hash": ""
+  },
+  "observability/grafana/provisioning/datasources/datasources.yml": {
+    "mtime": 1793047251.158677,
+    "seen": 1793201057.87593,
+    "ast_hash": "7ed19907cfd62660ac9079a6015a4ba6",
+    "semantic_hash": ""
+  },
+  "observability/prometheus.yml": {
+    "mtime": 1793046589.6177447,
+    "seen": 1793201057.875932,
+    "ast_hash": "bd9641895d34463425788989748f7e79",
+    "semantic_hash": ""
+  }
+}
