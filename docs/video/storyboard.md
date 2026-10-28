@@ -59,8 +59,8 @@ on camera; show `.env.example` instead). Do not record the Grafana admin login.
 Commands (type before recording, press Enter on cue):
 
 ```bash
-sed -n 20,40p seed_teams.py                 # PRICE_PER_TOKEN and the TEAMS table
-gateway-env/bin/python usage_report.py      # per-team spend and tokens
+python docs/video/demo/seg3_teams.py        # team limits and quotas table (no keys printed)
+sed -n 20,40p seed_teams.py                 # PRICE_PER_TOKEN and the TEAMS source
 gateway-env/bin/python -m pytest -q test_teams.py
 ```
 
@@ -75,6 +75,7 @@ gateway-env/bin/python -m pytest -q test_teams.py
 
 ```bash
 sed -n 68,84p litellm_config.yaml
+python docs/video/demo/seg4_cache.py        # needs the gateway; flushes the cache, then miss / HIT / miss / HIT
 gateway-env/bin/python -m pytest -q test_cache.py
 ```
 
@@ -86,11 +87,12 @@ gateway-env/bin/python -m pytest -q test_cache.py
 
 ## 7. Segment 5: the simulation (LIVE + ANIM, 1:00)
 
-Show the phase plan, then the result table. Do not run the full 4-minute simulation on camera; show a saved run.
+Show the phase plan, then the result table. Do not run the full 4-minute simulation on camera; show the saved run. Its cache was partly warm (81% hits against 73-76% cold), noted in simulation-report.md.
 
 ```bash
 sed -n 43,46p simulate.py                                   # PHASES
-gateway-env/bin/python simulate.py --analyze sim_results/<saved baseline run>.json | head -40
+python docs/video/demo/seg5_simulation.py  # summary of data/baseline-run.json (the run in simulation-report.md)
+gateway-env/bin/python simulate.py --analyze docs/video/demo/data/baseline-run.json | head -40
 ```
 
 | Time | Narration | On screen | Citation |
