@@ -289,3 +289,4 @@ Findings: `docs/fallback-experiment.md` ("Follow-up" section).
 | scratchpad `run_reruns.sh` (5 reruns), then one more pool run after a second embedding crash | Valid replacements; invalid runs moved to `sim_results/invalid-cache-broken/`. |
 | `compare_runs.py <9 runs>`, `simulate.py --analyze <run>` | Side-by-side table and per-run checks. Written up in `docs/variance-experiment.md`. |
 | `simulate.py` edit: record `pre_run` times; `simulate.py --label "429 probe baseline"` | Fixed the RPM-window check to count preflight/warm-up requests; verification run passed with 0 unjustified 429s. |
+| (video pipeline, see docs/video/README.md) `build_narration.py`, `remotion render` x11, `finalize.py` | Narration audio (Kokoro), 11 clips, thumbnail, final 5:57 video, captions and chapters in git-ignored `docs/video/upload/`. |

@@ -1,0 +1,22 @@
+{
+  "name": "llm-gateway-video-clips",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Animated clips for the LLM gateway video (see ../script.md)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "still": "remotion still src/index.ts --port=3100",
+    "render": "remotion render src/index.ts --port=3100",
+    "render:all": "for c in Hook Stack Caps Pool Failure Variance Honest Takeaways; do remotion render src/index.ts $c out/$c.mp4 --overwrite --port=3100 || exit 1; done"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.537",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.537"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

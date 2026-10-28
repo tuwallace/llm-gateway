@@ -23,7 +23,7 @@ on screen for about 4 seconds when the claim is spoken.
 | 10 | Measuring honestly | ANIM | 0:45 | docs/variance-experiment.md, simulation-report.md (Correction) |
 | 11 | Takeaways | ANIM | 0:35 | README.md (Key findings) |
 
-Total about 8 minutes. LIVE segments are screen recordings of the commands shown; ANIM segments are graphics drawn from the tables cited.
+Total about 8 minutes as planned; the built video is 5:57 (`script.md` is the tighter narration actually used, and the 11 segment ids differ slightly: 5 is the simulation replay, 6-10 the animated clips). LIVE segments are screen recordings of the commands shown; ANIM segments are graphics drawn from the tables cited.
 
 ## 2. One-time setup before recording
 

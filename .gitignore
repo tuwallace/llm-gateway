@@ -20,3 +20,9 @@ vault/
 # YouTube upload artifacts (finished video and publishing text)
 docs/video/upload/
 .DS_Store
+
+# video build output (large, regenerable)
+docs/video/anim/node_modules
+docs/video/anim/out/
+docs/video/anim/public/
+docs/video/anim/src/narration.json
