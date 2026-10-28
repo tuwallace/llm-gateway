@@ -201,7 +201,9 @@ export const Takeaways: React.FC = () => {
           <span style={{ color: col, fontWeight: 800 }}>{i + 1}</span><span>{t}</span>
         </Appear>
       ))}
-      <Appear at={beat(S, "The code, the write-ups")} style={{ marginTop: 60, fontSize: 36, color: C.muted }}>Code, write-ups and every number are in the repository.</Appear>
+      <Appear at={beat(S, "The code, the write-ups")} style={{ marginTop: 60, fontSize: 36, color: C.muted }}>Code, write-ups and every number are in the repository.
+        <div style={{ marginTop: 14, fontSize: 40, color: C.teal, fontWeight: 700 }}>github.com/tuwallace/llm-gateway</div>
+      </Appear>
     </Slide>
   );
 };

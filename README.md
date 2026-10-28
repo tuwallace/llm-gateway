@@ -6,6 +6,8 @@ per-team RPM/TPM limits and token quotas, semantic caching, load balancing, auto
 Prometheus/Grafana observability. A traffic simulator then exercises it with failure injection, and a series of
 experiments tests what protects a quiet team from a noisy one.
 
+**Video walkthrough:** [One LLM gateway, five teams: what I measured, and what I got wrong](https://youtu.be/xRIkIDjeMyI)
+
 The project is as much about **how to measure** as what was measured: several early conclusions were corrected by later
 runs, and those corrections are kept in the docs.
 
