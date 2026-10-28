@@ -9,8 +9,9 @@ or both fix that?
 and it makes the fallback **shut itself off for 30 seconds** whenever it trips. A second node alone
 changes nothing measurable. Neither touches the noisy-neighbour problem in normal operation.
 
-**Follow-up (below): a fallback with capacity comparable to the primaries does fix it** (0 failures in
-the run, against 15 and 17 for the baselines), and a shorter cooldown removes the limit's blackout cost.
+**Follow-up (below): a fallback with capacity comparable to the primaries shortens the outage latency** (phase C
+uncached p50 6-16 s against 31-39 s; the first single-run "0 failures against 15 and 17" did not reproduce, see the
+correction at the end and `variance-experiment.md`), and a shorter cooldown removes the limit's blackout cost.
 
 ## What the limit does
 
