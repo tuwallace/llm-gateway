@@ -16,3 +16,7 @@ sim_results/
 graphify-out/cache/
 vault/
 .claude/settings.local.json
+
+# YouTube upload artifacts (finished video and publishing text)
+docs/video/upload/
+.DS_Store
